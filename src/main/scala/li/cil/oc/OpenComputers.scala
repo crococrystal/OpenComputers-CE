@@ -20,7 +20,7 @@ import net.minecraftforge.forgespi.Environment
 import net.minecraftforge.fml.InterModComms
 import net.minecraftforge.fml.ModContainer
 import net.minecraftforge.fml.ModLoadingContext
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent
+import net.minecraftforge.fml.event.lifecycle.{FMLCommonSetupEvent, InterModProcessEvent}
 import net.minecraftforge.fml.loading.FMLPaths
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -28,8 +28,6 @@ import org.apache.logging.log4j.Logger
 import scala.collection.convert.ImplicitConversionsToScala._
 import net.minecraftforge.network.simple.SimpleChannel
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
-import net.minecraft.world.level.block.Block
-import net.minecraft.world.item.Item
 import net.minecraftforge.fml.common.Mod
 
 object OpenComputers {
@@ -37,9 +35,9 @@ object OpenComputers {
 
   final val Name = "OpenComputers"
 
-  final val McVersion = "@MCVERSION@-forge"
+  final val McVersion = "1.20.1-forge"
 
-  final val Version = "@VERSION@"
+  final val Version = "1.9.0-beta"
 
   final val log: Logger = LogManager.getLogger(Name)
 
@@ -91,5 +89,10 @@ class OpenComputers {
     e.enqueueWork((() => {
       InterModComms.getMessages(OpenComputers.ID).sequential.iterator.foreach(IMC.handleMessage)
     }): Runnable)
+  }
+
+  @SubscribeEvent
+  def onCommonSetup(e: FMLCommonSetupEvent): Unit = {
+    OpenComputers.proxy.init(e)
   }
 }

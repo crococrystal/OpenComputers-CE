@@ -55,6 +55,7 @@ object Constants {
     final val APUTier1 = "apu1"
     final val APUTier2 = "apu2"
     final val ArrowKeys = "arrowkeys"
+    final val AudioCardTier1 = "audiocard1"
     final val BatteryUpgradeTier1 = "batteryupgrade1"
     final val BatteryUpgradeTier2 = "batteryupgrade2"
     final val BatteryUpgradeTier3 = "batteryupgrade3"
@@ -136,6 +137,7 @@ object Constants {
     final val RAMTier4 = "ram4"
     final val RAMTier5 = "ram5"
     final val RAMTier6 = "ram6"
+    final val RAMCreative = "ramcreative"
     final val RawCircuitBoard = "rawcircuitboard"
     final val RedstoneCardTier1 = "redstonecard1"
     final val RedstoneCardTier2 = "redstonecard2"
@@ -176,6 +178,7 @@ object Constants {
 
     final val DefaultVendor = "MightyPirates GmbH & Co. KG"
     final val Scummtech = "Scummtech, Inc."
+    final val ViridiaComputronics = "Viridia Computronics, Co., Ltd."
 
   }
 
